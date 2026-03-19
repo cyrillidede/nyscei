@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-abeg6)@o^(whrja20$-2nksqz$tye5n&8kc4(r+z5(gp9_v4x5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["nyscei-chapel.onrender.com"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'ebenezersite.urls'
