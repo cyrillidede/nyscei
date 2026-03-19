@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All leaders</title>
+    <link rel="stylesheet" href="{% static 'styleleaderstable.css' %}">
+</head>
+<body>
+    <label>CURRENT LEADERS</label>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role </th>
+                <th>Course </th>
+                <th>Year of Discharge </th>
+
+                
+            </tr>
+        </thead>
+        <tbody>
+            {%for leader in leaders %}
+            <tr>
+                <td>{{leader.name}}</td>
+                <td>{{leader.role}} </td>
+                <td>{{leader.course}}</td>
+                <td>{{leader.year_discharged}}</td>
+                
+            </tr>
+            {% empty %}
+            <tr><td>no leaders found</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <div> <button class="btn">PREVIOUS LEADERS </button></div><br><br>
+    <a href="{% url 'leadership' %}">
+        <button>Back</button>
+    </a>
+</body>
+</html>

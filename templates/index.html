@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NYS Camp Egineering Institute Chapel</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body style="background-color: #ECDCAB">
+  <header>
+    <div class="logo"><img src="{% static 'logo.jpg' %}" width="65" height="65"></div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Activities</a></li>
+        <li><a href="{% url 'leadership' %}">Leadership</a></li>
+        <li><a href="#">Contacts</a></li>
+        <li><a href="{% url 'account' %}">Account</a></li>
+        {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button>log out</button>
+            </form>
+        {% else %}
+            <button>
+            <a href="{% url 'login' %}">Login</a>
+            </button>
+        {% endif %}
+       
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1 style ="color: #9e6200">NYS Camp Egineering Institute Chapel</h1>
+  </section>
+  <div class="container">
+  <div class="card big-card">
+    <h2>NYSCEI</h2>
+    <p>__</p>
+  </div>
+  <div class="card small-card">
+    <p>__</p>
+  </div>
+</div>
+
+  <section class="products">
+    <div class="product-card">
+      <img src="{% static 'img1.jpg' %}">
+      <h3>PRAISE AND WORSHIP</h3>
+      <p><hr></p>
+    </div>
+    <div class="product-card">
+      <img src="{% static 'img2.jpg' %}">
+      <h3>INTERSESSORY</h3>
+      <p><hr></p>
+    </div>
+    <div class="product-card">
+      <img src="{% static 'img3.jpg' %}">
+      <h3>MEDIA</h3>
+      <p><hr></p>
+    </div>
+    <div class="product-card">
+      <img src="{% static 'img4.jpg' %}">
+      <h3>PROTOCOL</h3>
+      <p><hr></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 NYSCEI </p>
+    <label><img src ="{%static 'fb.jpeg' %}" width="25" height="25" &nbsp>Facebook</label>
+    <label><img src ="{%static 'tik.jpg' %}" width="25" height="25" &nbsp>Tik Tok</label>
+    <label><img src ="{%static 'yt.jpeg' %}" width="25" height="25" &nbsp>Youtube</label>
+  </footer>
+</body>
+</html>

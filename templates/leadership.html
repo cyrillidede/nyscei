@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Church Leadership</title>
+  <link rel="stylesheet" href="{% static 'styleleadership.css' %}">
+</head>
+<body>
+  <!-- Navigation -->
+   
+
+  <!-- Header -->
+  <header>
+     <div class="logo"><img src="{%static 'logo.jpg' %}" width="65" height="65"></div>
+    <nav>
+      <ul>
+        <li><a href="{% url 'home'%}">Home</a></li>
+        <li><a href="#">Activities</a></li>
+        <li><a href="{% url 'leadership' %}">Leadership</a></li>
+        <li><a href="#">Contacts</a></li>
+        <li><a href="{% url 'login' %}">Account</a></li>
+         {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button>log out</button>
+            </form>
+        {% else %}
+            <button>
+            <a href="{% url 'login' %}">Login</a>
+            </button>
+        {% endif %}
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Leaders -->
+  <div> <h1>CURRENT LEADERSHIP </h1></div>
+ 
+  <section class="main-leaders">
+    <div class="leader-card">
+      <img src="{%static 'lin.jpg' %}">
+      <h2>CHAIRMAN</h2>
+      <p>LINCOLN KINYUA</p>
+    </div>
+    <div class="leader-card">
+      <img src="{%static 'vee.jpg' %}">
+      <h2>CHAIRLADY</h2>
+      <p>VICTORIA MUKIRI</p>
+    </div>
+  </section>
+
+  <!-- Other Leaders -->
+  <section class="other-leaders">
+    <div class="leader-card"><img src="{%static 'img1.jpg' %}" w><h2>TREASURER</h2><P>MERCY WAKHUNGU</P></div>
+    <div class="leader-card"><img src="{%static 'img1.jpg' %}"><h2>SECRETARY</h2><P>MILES JACKSON</P></div>
+    <div class="leader-card"><img src="{%static 'sam.jpg' %}"><h2>PROTOCOL</h2><p>SAMUEL NYAMU</P></div>
+    <div class="leader-card"><img src="{%static 'img1.jpg' %}"><h2>MEDIA</h2><P>MILES JACKSON</P></div>
+    <div class="leader-card"><img src="{%static 'img1.jpg' %}"><h2>PRAISE AND WORSHIP</h2><P>GEORGE BAYA</P></div>
+    <div class="leader-card"><img src="{%static 'img1.jpg' %}"><h2>HOSPITALITY</h2><P>SARAH MWENJE</P></div>
+    <div class="leader-card"><img src="{%static 'img1.jpg' %}"><h2>USHERING</h2><p>GIDEON MUSTO</p></div>
+    <div class="leader-card"><img src="{%static 'img1.jpg' %}"><h2>SUNDAY SCHOOL</h2><P>STEVE</P></div>
+    <div class="leader-card"><img src="{%static 'img1.jpg' %}"><h2>ART</h2><P>LYNN MUHONJA</P></div>
+  </section>
+  <a href="{% url 'leaderstable' %}">
+  <div> <button class="btn" >VIEW ALL LEADERS CURRENT AND PAST </button></div>
+  </a>
+  <footer>
+    <p>&copy; 2026 NYSCEI </p>
+     <label><img src ="{%static 'fb.jpeg' %}" width="25" height="25" &nbsp>Facebook</label>
+    <label><img src ="{%static 'tik.jpg' %}" width="25" height="25" &nbsp>Tik Tok</label>
+    <label><img src ="{%static 'yt.jpeg' %}" width="25" height="25" &nbsp>Youtube</label>
+  </footer>
+</body>
+</html>

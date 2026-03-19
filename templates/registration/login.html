@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color:#ECDCAB ;
+      display: flex;
+      flex-direction: column; /* stack header, main, footer vertically */
+      min-height: 100vh;
+    }
+
+    header {
+      background: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #9e6200;
+      font-weight: 500;
+    }
+
+    main {
+      flex: 1; /* take remaining space */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      position: relative;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      width: 320px;
+      text-align: center;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      font-size: 1.2rem;
+      color: #1e3c72;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: #2a5298;
+    }
+
+    .login-container h2 {
+      margin-bottom: 1.5rem;
+      color: #1e3c72;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 0.75rem;
+      background: #1e3c72;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      margin-top: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .login-container button:hover {
+      background: #2a5298;
+    }
+     footer {
+      text-align: center;
+      padding: 1rem;
+      background: #ECDCAB;
+      border-top: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><img src="{% static 'logo.jpg' %}" width="65" height="65"></div>
+    <nav>
+      <ul>
+        <li><a href="{% url 'home'%}">Home</a></li>
+        <li><a href="#">Activities</a></li>
+        <li><a href="{% url 'leadership' %}">Leadership</a></li>
+        <li><a href="#">Contacts</a></li>
+        <li><a href="{% url 'login' %}">Account</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="login-container" id="loginBox">
+      
+      <h2>Log in to continue</h2>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="next" value="{{next}}">
+        <button type="submit">Login</button>
+      </form>
+      <div class="access">
+      <p>Forgot your password? <a href="#">Reset here</a></p>
+      <label>Create account &nbsp</label> <label>Cancel</label>
+    </div>
+
+    </div>
+  </main>
+
+  <footer>
+    
+    <p>&copy; 2026 NYSCEI </p>
+    <label><img src ="{%static 'fb.jpeg' %}" width="25" height="25" &nbsp>Facebook</label>
+    <label><img src ="{%static 'tik.jpg' %}" width="25" height="25" &nbsp>Tik Tok</label>
+    <label><img src ="{%static 'yt.jpeg' %}" width="25" height="25" &nbsp>Youtube</label>
+  
+  </footer>
+</body>
+</html>

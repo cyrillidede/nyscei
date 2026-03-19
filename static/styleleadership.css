@@ -1,0 +1,117 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #ecdcab, #d8d0b8);
+  
+  text-align: center;
+}
+
+/* Navigation */
+ nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+	  text-align:center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #9e6200;
+      font-weight: 500;
+    } 
+	header {
+      background: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+/* Leader Cards */
+.leader-card {
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+.leader-card:hover {
+  transform: translateY(-5px);
+}
+.leader-card img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 12px;
+}
+.leader-card h2 {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #AC713B;
+}
+.leader-card p {
+  font-size: 14px;
+  color: #333537;
+  font-weight: bold;
+}
+
+/* Layouts */
+.main-leaders {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.other-leaders {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-leaders {
+    grid-template-columns: 1fr;
+  }
+  .other-leaders {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .other-leaders {
+    grid-template-columns: 1fr;
+  }
+}
+ footer {
+      text-align: center;
+      padding: 1rem;
+      background: #ECDCAB;
+      border-top: 1px solid #ddd;
+    }
+	
+	
+.btn{
+ 
+  color: #333;
+  padding: 10px 20px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #333;
+  color: white;
+}
+a:hover {
+  
+  color: #f0c353;
+}
