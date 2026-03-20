@@ -16,19 +16,7 @@
       border-bottom: 1px solid #ddd;
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #9e6200;
-      font-weight: 500;
-    }
+    
 
     .hero {
       background: url('living-room.jpg') center/cover no-repeat;
@@ -130,3 +118,63 @@ a:hover {
   
   color: #f0c353;
 }
+nav {
+      background: #333;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    /* Hamburger icon */
+    .hamburger {
+      cursor: pointer;
+      display: block;
+      width: 25px;
+      height: 20px;
+      position: relative;
+    }
+
+    .hamburger span {
+      background: #fff;
+      display: block;
+      height: 3px;
+      margin: 5px 0;
+      transition: 0.4s;
+    }
+
+    /* Navigation links */
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      height: 100%;
+      width: 200px;
+      background: #444;
+      display: flex;
+      flex-direction: column;
+      padding-top: 60px;
+      transition: right 0.4s ease;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      padding: 1rem;
+      border-bottom: 1px solid #555;
+    }
+
+    .nav-links a:hover {
+      background: #555;
+    }
+
+    /* Active state */
+    .nav-links.active {
+      right: 0;
+    }
