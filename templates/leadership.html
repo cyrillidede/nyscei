@@ -10,17 +10,23 @@
   <!-- Navigation -->
    
 
-  <!-- Header -->
-  <header>
-     <div class="logo"><img src="{%static 'logo.jpg' %}" width="65" height="65"></div>
-    <nav>
-      <ul>
-        <li><a href="{% url 'home'%}">Home</a></li>
+    <header>
+    <div class="logo"><img src="{% static 'logo.jpg' %}" width="65" height="65"></div>
+
+  <button class="menu-toggle" id="menuToggle">
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+  </button>
+
+    <nav class="nav-overlay" id="navOverlay">
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
         <li><a href="#">Activities</a></li>
         <li><a href="{% url 'leadership' %}">Leadership</a></li>
         <li><a href="#">Contacts</a></li>
-        <li><a href="{% url 'login' %}">Account</a></li>
-         {% if user.is_authenticated %}
+        <li><a href="{% url 'account' %}">Account</a></li>
+        {% if user.is_authenticated %}
             <form method="post" action="{% url 'logout' %}">
               {% csrf_token %}
               <button>log out</button>
@@ -30,8 +36,28 @@
             <a href="{% url 'login' %}">Login</a>
             </button>
         {% endif %}
+
       </ul>
     </nav>
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+const navOverlay = document.getElementById('navOverlay');
+
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  navOverlay.classList.toggle('open');
+});
+
+// Close menu when a link is clicked
+const links = document.querySelectorAll('.nav-links a');
+links.forEach(link => {
+  link.addEventListener('click', () => {
+    menuToggle.classList.remove('active');
+    navOverlay.classList.remove('open');
+  });
+});
+
+  </script>
   </header>
 
   <!-- Main Leaders -->
