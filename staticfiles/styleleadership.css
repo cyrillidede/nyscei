@@ -5,7 +5,15 @@ body {
   text-align: center;
   
 }
-
+header {
+      width: 100%;
+      background: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
 
  
 
