@@ -24,3 +24,4 @@ dj-database-url
 psycopg
 psycopg2
 gunicorn
+whitenoise
