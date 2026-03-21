@@ -1,14 +1,13 @@
-
-    body {
+   body {
 	  
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #ECDCAB;
       color: #333;
-      text-align: center;
     }
 
     header {
+      width: 100%;
       background: #fff;
       padding: 1rem 2rem;
       display: flex;
@@ -17,19 +16,7 @@
       border-bottom: 1px solid #ddd;
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #9e6200;
-      font-weight: 500;
-    }
+    
 
     .hero {
       background: url('living-room.jpg') center/cover no-repeat;
@@ -82,10 +69,11 @@
     }
 
     footer {
-      text-align: center;
+    
       padding: 1rem;
       background: #ECDCAB;
       border-top: 1px solid #ddd;
+      text-align: center;
     }
 
     .swipe-up {
@@ -130,4 +118,77 @@
 a:hover {
   
   color: #f0c353;
+}
+
+
+
+/* Basic Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+
+/* The Toggle Button */
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: black; /* Color of the hamburger lines */
+  transition: 0.4s;
+}
+
+/* The Overlay */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+  backdrop-filter: blur(8px);    /* Modern "glass" effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s ease-in-out;
+  z-index: 999;
+}
+
+/* Active State for Overlay */
+.nav-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Navigation Links */
+.nav-links { list-style: none; text-align: center; }
+.nav-links li { margin: 25px 0; }
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Hamburger to "X" Animation */
+.menu-toggle.active .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
 }
