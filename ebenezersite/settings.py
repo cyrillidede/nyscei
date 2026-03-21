@@ -139,3 +139,6 @@ SESSION_COOKIE_SAMESITE = 'Lax'
 CSRF_TRUSTED_ORIGINS = ["https://nyscei-chapel.onrender.com"]
 
 APP_DIRS = True
+
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
