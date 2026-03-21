@@ -20,6 +20,9 @@ def leaderstable(request):
 def login(request):
     return render(request, 'login.html')
 
+def activities(request):
+    return render(request, 'activities.html')
+
 @login_required
 def account(request):
     return render(request, 'account.html', {'user': request.user})
