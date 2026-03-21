@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Activities</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS STYLES */
+        :root {
+            --primary-bg: #f8f6f2;
+            --accent-gold: #a67c52;
+            --dark-text: #1a1a1a;
+            --light-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: #fff;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Hero / Carousel Area */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1503095396549-807a8bc3667c?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        /* Featured Events Section */
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h3 {
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Event Card (Ticket Style) */
+        .event-card {
+            background: white;
+            display: flex;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .date-box {
+            background: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-right: 2px dashed var(--light-gray);
+            min-width: 100px;
+        }
+
+        .date-box span { display: block; }
+        .date-month { font-size: 0.8rem; font-weight: bold; text-transform: uppercase; color: var(--accent-gold); }
+        .date-day { font-size: 1.8rem; font-weight: bold; line-height: 1; }
+        .date-time { font-size: 0.7rem; background: #000; color: #fff; padding: 2px 5px; margin-top: 5px; border-radius: 3px; }
+
+        .event-info {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .category { font-size: 0.7rem; text-transform: uppercase; color: #777; letter-spacing: 1px; }
+        .event-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin: 5px 0; }
+        .event-subtitle { font-size: 0.8rem; color: #666; margin-bottom: 15px; }
+
+        .btn-group { display: flex; gap: 15px; align-items: center; }
+        .btn-ticket { background: var(--accent-gold); color: white; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
+        .btn-details { color: var(--accent-gold); text-decoration: underline; font-size: 0.8rem; cursor: pointer; }
+
+        .event-image {
+            width: 250px;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* The Ticket "Notch" */
+        .event-image::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary-bg);
+            border-radius: 50%;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .event-card { flex-direction: column; }
+            .event-image { width: 100%; height: 180px; order: -1; }
+            .event-image::before { display: none; }
+            .date-box { border-right: none; border-bottom: 2px dashed var(--light-gray); flex-direction: row; gap: 10px; }
+            .nav-links { display: none; }
+        }
+		footer {
+
+      padding: 1rem;
+      background: #ECDCAB;
+      border-top: 1px solid #ddd;
+      text-align: center;
+    }
+    header {
+      width: 100%;
+      background: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+
+/* The Toggle Button */
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: black; /* Color of the hamburger lines */
+  transition: 0.4s;
+}
+
+/* The Overlay */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+  backdrop-filter: blur(8px);    /* Modern "glass" effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s ease-in-out;
+  z-index: 999;
+}
+
+/* Active State for Overlay */
+.nav-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Navigation Links */
+.nav-links { list-style: none; text-align: center; }
+.nav-links li { margin: 25px 0; }
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Hamburger to "X" Animation */
+.menu-toggle.active .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+    </style>
+</head>
+<body>
+
+    <header>
+    <div class="logo"><img src="{% static 'logo.jpg' %}" width="65" height="65"></div>
+
+  <button class="menu-toggle" id="menuToggle">
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+  </button>
+
+    <nav class="nav-overlay" id="navOverlay">
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Activities</a></li>
+        <li><a href="{% url 'leadership' %}">Leadership</a></li>
+        <li><a href="#">Contacts</a></li>
+        <li><a href="{% url 'account' %}">Account</a></li>
+        {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button>log out</button>
+            </form>
+        {% else %}
+            <button>
+            <a href="{% url 'login' %}">Login</a>
+            </button>
+        {% endif %}
+
+      </ul>
+    </nav>
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+const navOverlay = document.getElementById('navOverlay');
+
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  navOverlay.classList.toggle('open');
+});
+
+// Close menu when a link is clicked
+const links = document.querySelectorAll('.nav-links a');
+links.forEach(link => {
+  link.addEventListener('click', () => {
+    menuToggle.classList.remove('active');
+    navOverlay.classList.remove('open');
+  });
+});
+
+  </script>
+  </header>
+
+    <section class="hero">
+        <p>• The Lewistage Theatre Events •</p>
+        <h2 id="current-range">June 27th - July 4th</h2>
+        <div class="main-slider-placeholder">
+            <button class="btn-ticket" onclick="alert('Redirecting to Checkout...')">Get Tickets</button>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="section-header">
+            <h3>Featured Upcoming Events</h3>
+            <p style="font-size: 0.8rem; color: #666;">Keep coming back to our website to stay informed.</p>
+        </div>
+
+        <div id="event-list">
+            </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <button class="btn-details" style="border: 1px solid #ccc; padding: 10px 30px; text-decoration: none;">View All Events</button>
+        </div>
+    </main>
+
+    <script>
+        // JAVASCRIPT LOGIC
+        const events = [
+            {
+                date: "27", month: "Jun", time: "7:00 PM",
+                category: "Comedy",
+                title: "William Smith Comedy Show",
+                subtitle: "Crack a Smile - 2026 Tour",
+                img: "https://images.unsplash.com/photo-1514525253361-bee8718a340b?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                date: "28", month: "Jun", time: "8:30 PM",
+                category: "Concert",
+                title: "Shannon Weigel Acoustic Night",
+                subtitle: "Tour: Love Me As I Love You",
+                img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                date: "29", month: "Jun", time: "8:00 PM",
+                category: "Theatre",
+                title: "The Lewistage Hamlet",
+                subtitle: "By William Shakespeare",
+                img: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=400&q=80"
+            }
+        ];
+
+        function renderEvents() {
+            const list = document.getElementById('event-list');
+            list.innerHTML = events.map(event => `
+                <div class="event-card">
+                    <div class="date-box">
+                        <span class="date-month">${event.month}</span>
+                        <span class="date-day">${event.date}</span>
+                        <span class="date-time">${event.time}</span>
+                    </div>
+                    <div class="event-info">
+                        <span class="category">${event.category}</span>
+                        <h4 class="event-title">${event.title}</h4>
+                        <p class="event-subtitle">${event.subtitle}</p>
+                        <div class="btn-group">
+                            <button class="btn-ticket">Get Tickets</button>
+                            <span class="btn-details">View Details</span>
+                        </div>
+                    </div>
+                    <div class="event-image" style="background-image: url('${event.img}')"></div>
+                </div>
+            `).join('');
+        }
+
+        // Initialize
+        window.onload = renderEvents;
+
+        // Simple interaction for the "Get Tickets" buttons
+        document.addEventListener('click', (e) => {
+            if(e.target.classList.contains('btn-ticket')) {
+                const title = e.target.closest('.event-card').querySelector('.event-title').innerText;
+                alert(`Booking tickets for: ${title}`);
+            }
+        });
+    </script>
+</body>
+<footer>
+    <p>&copy; 2026 NYSCEI </p>
+    <label><img src ="{%static 'fb.jpeg' %}" width="25" height="25" &nbsp>Facebook</label>
+    <label><img src ="{%static 'tik.jpg' %}" width="25" height="25" &nbsp>Tik Tok</label>
+    <label><img src ="{%static 'yt.jpeg' %}" width="25" height="25" &nbsp>Youtube</label>
+  </footer>  
+
+</html>
