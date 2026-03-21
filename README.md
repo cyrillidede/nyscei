@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+HEAD
 # nyscei
 NYSCEI CHAPEL APP
 =======
