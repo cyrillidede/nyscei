@@ -124,7 +124,7 @@ a:hover {
 }
 
 .bar {
-  width: 45px;
+  width: 30px;
   height: 3px;
   background-color: black; /* Color of the hamburger lines */
   transition: 0.4s;
