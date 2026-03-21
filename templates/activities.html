@@ -38,6 +38,14 @@
 
       </ul>
     </nav>
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+const navOverlay = document.getElementById('navOverlay');
+
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  navOverlay.classList.toggle('open');
+});
 </header>
   <div class="container">
     <!-- Featured Event -->
