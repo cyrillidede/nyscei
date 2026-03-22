@@ -127,3 +127,10 @@
       color: #9e6200;
       font-weight: 500;
     }
+    footer {
+
+      padding: 1rem;
+      background: #ECDCAB;
+      border-top: 1px solid #ddd;
+      text-align: center;
+    }
