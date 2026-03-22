@@ -136,7 +136,7 @@ SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SAMESITE = 'Lax'
 
-CSRF_TRUSTED_ORIGINS = ["https://nyscei-chapel.onrender.com"]
+CSRF_TRUSTED_ORIGINS = ["https://nyscei-chapel.up.railway.app",]
 
 APP_DIRS = True
 
