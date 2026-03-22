@@ -20,8 +20,8 @@
 
     <nav class="nav-overlay" id="navOverlay">
       <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Activities</a></li>
+        <li><a href="{% url 'activities'%}">Home</a></li>
+        <li><a href="{% url 'activities'%}">Activities</a></li>
         <li><a href="{% url 'leadership' %}">Leadership</a></li>
         <li><a href="#">Contacts</a></li>
         <li><a href="{% url 'account' %}">Account</a></li>
@@ -64,7 +64,7 @@ menuToggle.addEventListener('click', () => {
                         <a href="#" class="link-text">View Details</a>
                     </div>
                 </div>
-                <div class="card-visual ticket-stub" style="background-image: url('event1.jpg');"></div>
+                <div class="card-visual ticket-stub" style="background-image: url("{% static "img2"%});"></div>
             </div>
         </div>
     </section>
