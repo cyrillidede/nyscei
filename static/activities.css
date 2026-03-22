@@ -4,10 +4,11 @@
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
-      
+
       border-bottom: 1px solid #ddd;
     }
-        footer {
+
+    footer {
 
       padding: 1rem;
       background: #ECDCAB;
@@ -83,31 +84,111 @@
 .menu-toggle.active .bar:nth-child(3) {
   transform: translateY(-9px) rotate(-45deg);
 }
-.event {
-  background: #fff;
-  margin: 20px auto;
-  padding: 20px;
-  max-width: 600px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+
+footer {
+  background: #2c3e50;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
 }
 
-.event h2 {
-  margin-top: 0;
-  color: #2c3e50;
+:root {
+    --gold: #b38b59;
+    --dark-bg: #1a1a1a;
+    --light-gray: #f4f1ea;
+    --border: #e0ddd5;
 }
 
-.event .date {
-  font-weight: bold;
-  color: #e74c3c;
+
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero-bg.jpg') center/cover;
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+}
+.hero h1 { font-size: 2.5rem; margin-bottom: 40px; }
+
+.hero-card {
+    display: flex;
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    color: #000;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
 }
 
-.event .location {
-  font-style: italic;
-  color: #3498db;
+.card-body { flex: 1.5; padding: 40px; text-align: left; }
+.card-visual { flex: 1; background-size: cover; background-position: center; }
+
+/* The Ticket Notch Effect */
+.ticket-stub {
+    mask-image: radial-gradient(circle at left, transparent 15px, black 16px);
+    -webkit-mask-image: radial-gradient(circle at left, transparent 15px, black 16px);
 }
 
-.event .description {
-  margin-top: 10px;
-  line-height: 1.5;
+/* Event Rows */
+.container { max-width: 900px; margin: 60px auto; padding: 0 20px; }
+.section-header { text-align: center; margin-bottom: 40px; }
+
+.event-item {
+    display: flex;
+    background: #fff;
+    margin-bottom: 15px;
+    border: 1px solid var(--border);
+    align-items: center;
+}
+
+.date-col {
+    padding: 20px;
+    min-width: 100px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+}
+.date-col .month { display: block; font-size: 0.8rem; color: #888; }
+.date-col .day { font-size: 1.8rem; font-weight: bold; }
+.date-col .time { display: block; font-size: 0.7rem; background: #000; color: #fff; margin-top: 5px; border-radius: 2px; }
+
+.info-col { flex: 2; padding: 20px 30px; }
+.img-col { width: 220px; height: 140px; background-size: cover; }
+
+/* Buttons & Links */
+.category { color: var(--gold); font-size: 0.7rem; letter-spacing: 2px; font-weight: bold; }
+.btn-gold, .btn-gold-sm {
+    background: var(--gold);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+.link-text, .link-text-sm {
+    color: #888;
+    margin-left: 15px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+}
+.btn-outline {
+    background: transparent;
+    border: 1px solid #888;
+    padding: 12px 30px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-card, .event-item { flex-direction: column; }
+    .img-col { width: 100%; }
+    .ticket-stub { 
+        mask-image: radial-gradient(circle at top, transparent 15px, black 16px); 
+        -webkit-mask-image: radial-gradient(circle at top, transparent 15px, black 16px);
+    }
 }
