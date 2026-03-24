@@ -1,48 +1,97 @@
-<h2>Create an Account</h2>
+<div class="signup-container">
+    <div class="signup-card">
 <style>
-    /* Add your CSS here */
     body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f4f7f6;
+        background-color: #f0f2f5;
+        font-family: 'Segoe UI', Arial, sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        min-height: 100vh;
         margin: 0;
     }
-    form {
-        background: white;
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+    .signup-card {
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         width: 100%;
-        max-width: 400px;
+        max-width: 450px;
+        text-align: center;
     }
-    form p { margin-bottom: 15px; }
-    input { 
-        width: 100%; 
-        padding: 10px; 
-        border: 1px solid #ddd; 
-        border-radius: 4px; 
-        box-sizing: border-box; /* Crucial for width */
+
+    h2 {
+        color: #1c1e21;
+        margin-bottom: 25px;
     }
-    button {
+
+    /* Target Django's form paragraphs */
+    form p {
+        text-align: left; /* Keep labels and inputs left-aligned */
+        margin-bottom: 20px;
+        font-weight: 600;
+        color: #4b4f56;
+    }
+
+    input {
         width: 100%;
         padding: 12px;
+        margin-top: 8px;
+        border: 1px solid #dddfe2;
+        border-radius: 6px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    /* Clean up the messy help text and lists */
+    .helptext, .helptext ul {
+        font-size: 0.8rem;
+        color: #8d949e;
+        font-weight: normal;
+        margin-top: 5px;
+        padding-left: 20px;
+    }
+
+    .btn-signup {
+        width: 100%;
         background-color: #28a745;
         color: white;
+        padding: 14px;
         border: none;
-        border-radius: 4px;
-        cursor: pointer;
+        border-radius: 6px;
+        font-size: 18px;
         font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
     }
-    button:hover { background-color: #218838; }
+
+    .btn-signup:hover {
+        background-color: #218838;
+    }
+
+    .login-link {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        color: #606770;
+    }
+
+    .login-link a {
+        color: #007bff;
+        text-decoration: none;
+    }
 </style>
 
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Sign Up</button>
-</form>
+        <h2>Create an Account</h2>
+        
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-signup">Sign Up</button>
+        </form>
 
-<p>Already have an account? <a href="{% url 'login' %}">Log in here</a>.</p>
+        <p class="login-link">
+            Already have an account? <a href="{% url 'login' %}">Log in here</a>.
+        </p>
+    </div>
+</div>
