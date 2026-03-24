@@ -1,8 +1,9 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect 
 from main.models import *
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth import login
+from .forms import SignUpForm
 
 def about(request):
     return HttpResponse('love, vickie')
@@ -26,3 +27,20 @@ def activities(request):
 @login_required
 def account(request):
     return render(request, 'account.html', {'user': request.user})
+
+
+
+
+
+def signup_view(request):
+    if request.method == "POST":
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user) # Log the user in automatically
+            return redirect("home") # Redirect to your dashboard or home
+    else:
+        form = SignUpForm()
+    
+    return render(request, "signup.html", {"form": form})
+
