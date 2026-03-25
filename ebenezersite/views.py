@@ -28,8 +28,10 @@ def activities(request):
 
 @login_required
 def account(request):
-    return render(request, 'account.html', {'user': request.user})
-
+    def account_page(request):
+    profile = request.user.profile
+    return render(request, 'account.html', {'profile': profile})
+    
 def signup(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
