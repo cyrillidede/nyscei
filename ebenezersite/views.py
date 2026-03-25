@@ -3,7 +3,8 @@ from django.shortcuts import render, redirect
 from main.models import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
-from .forms import SignUpForm
+from .forms import CustomUserCreationForm
+
 
 def about(request):
     return HttpResponse('love, vickie')
@@ -32,15 +33,15 @@ def account(request):
 
 
 
-def signup_view(request):
+
+
+def signup(request):
     if request.method == "POST":
-        form = SignUpForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            login(request, user) # Log the user in automatically
-            return redirect("home") # Redirect to your dashboard or home
+            form.save()
+            return redirect("login")
     else:
-        form = SignUpForm()
-    
+        form = CustomUserCreationForm()
     return render(request, "signup.html", {"form": form})
 
