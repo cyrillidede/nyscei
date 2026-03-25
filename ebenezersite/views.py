@@ -28,7 +28,7 @@ def activities(request):
 
 @login_required
 def account(request):
-    def account_page(request):
+    
     profile = request.user.profile
     return render(request, 'account.html', {'profile': profile})
     
