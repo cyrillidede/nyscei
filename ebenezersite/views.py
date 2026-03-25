@@ -7,7 +7,7 @@ from .forms import CustomUserCreationForm
 
 
 def about(request):
-    return HttpResponse('love, vickie')
+    return HttpResponse('nyscei')
 
 def homepage(request):
     return render(request, 'index.html')
