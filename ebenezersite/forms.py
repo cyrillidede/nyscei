@@ -6,4 +6,4 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
         # Add the fields you want from the auth_user table
-        fields = ("username", "first_name", "last_name", "email","phone", "service_no", "course","year_of_discharge","password1", "password2")
+        fields = ("username", "first_name", "last_name", "email","password1", "password2")
