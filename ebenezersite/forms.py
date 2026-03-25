@@ -2,9 +2,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-class SignUpForm(UserCreationForm):
-    email = forms.EmailField(required=True)
-
-    class Meta:
+class CustomUserCreationForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
         model = User
-        fields = ("username", "email")
+        # Add the fields you want from the auth_user table
+        fields = ("username", "first_name", "last_name", "email","phone", "service_no, "course","year_of_discharge","password1", "password2")
