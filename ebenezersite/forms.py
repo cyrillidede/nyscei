@@ -1,9 +1,15 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .models import Profile
 
-class CustomUserCreationForm(UserCreationForm):
-    class Meta(UserCreationForm.Meta):
+class UserRegistrationForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+    
+    class Meta:
         model = User
-        # Add the fields you want from the auth_user table
-        fields = ("username", "first_name", "last_name", "email", "password1", "password2")
+        fields = ['username', 'email', 'password']
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['phone', 'service_no', 'course', 'year_of_discharge', 'employment_status']
