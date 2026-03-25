@@ -18,11 +18,8 @@ def signup(request):
             # Save the user first
             user = form.save()
 
-            # Create the profile linked to this user
-            Profile.objects.create(
-                user=user,
-                
-            )
+            # Create the profile only if it doesn't exist
+            Profile.objects.get_or_create(user=user)
 
             return redirect('login')  # or wherever you want to redirect
     else:
