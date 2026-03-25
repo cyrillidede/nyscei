@@ -18,7 +18,7 @@ def leaderstable(request):
     leaders =Current_leader.objects.all()
     return render(request, 'leaderstable.html',{'leaders': leaders})
 
-def login(request):
+def login_view(request):
     return render(request, 'login.html')
 
 def activities(request):
