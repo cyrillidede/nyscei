@@ -21,10 +21,7 @@ def signup(request):
             # Create the profile linked to this user
             Profile.objects.create(
                 user=user,
-                # Example: pull extra fields from the form if included
-                bio=form.cleaned_data.get('bio', ''),
-                phone=form.cleaned_data.get('phone', ''),
-                # add other profile fields here
+                
             )
 
             return redirect('login')  # or wherever you want to redirect
