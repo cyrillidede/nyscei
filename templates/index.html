@@ -99,26 +99,26 @@ startSlideshow('protocol');
 </div>
 
   <section class="products">
-      <div class="slideshow praise-worship">
-    <img src="{% static 'img1.jpg' %}" alt="Praise and Worship">
-    <img src="{% static 'img2.jpg' %}" alt="Praise and Worship">
-    <img src="{% static 'img3.jpg' %}" alt="Praise and Worship">
+      <div class="slideshow-container">
+  <div class="mySlides fade">
+    <img src="{% static 'img1.jpg' %}" style="width:100%">
+    <div class="text">Caption One</div>
+  </div>
+
+  <div class="mySlides fade">
+    <img src="{% static 'img2.jpg' %}" style="width:100%">
+    <div class="text">Caption Two</div>
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
-<div class="slideshow praise-worship">
-    <img src="img1.jpg" alt="Praise and Worship">
-    <img src="img2.jpg" alt="Praise and Worship">
-    <img src="img3.jpg" alt="Praise and Worship">
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
 </div>
-    <div class="slideshow praise-worship">
-    <img src="img1.jpg" alt="Praise and Worship">
-    <img src="img2.jpg" alt="Praise and Worship">
-    <img src="img3.jpg" alt="Praise and Worship">
-</div>
-     <div class="slideshow praise-worship">
-    <img src="img1.jpg" alt="Praise and Worship">
-    <img src="img2.jpg" alt="Praise and Worship">
-    <img src="img3.jpg" alt="Praise and Worship">
-</div>
+
   </section>
 
   <footer>
